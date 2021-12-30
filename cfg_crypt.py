@@ -12,6 +12,7 @@ def gen_key():
     fernet_key = Fernet.generate_key()
     with open('.cfg.key', 'wb') as cfg_key:
         cfg_key.write(fernet_key)
+    print("\033[5m==>\033[0m Key generated at ./.cfg.key\n")
 
 def read_key():
     """Read encryption key"""
@@ -30,11 +31,13 @@ def gen_cfg():
 
 def encrypt_cfg(login_info, fernet_key):
     """Encrypt and replace raw cfg file"""
-    print("Encrypting config file...")
+    print("\nEncrypting config file...")
     encrypted = fernet_key.encrypt(bytes(login_info, 'utf-8'))
     with open('.crypt_cfg', 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
     print('Encryption complete.')
+    print("\033[5m==>\033[0m Encrypted file saved at ./.crypt_cfg\n")
+
 
 def decrypt_cfg(fernet_key):
     """Decrypt bytes and convert to cfg dict"""
@@ -47,6 +50,7 @@ def decrypt_cfg(fernet_key):
 
 if __name__ == '__main__':
     if not os.path.exists('.cfg.key'):
+        print("No key detected...")
         gen_key()
     if not os.path.exists('.crypt_cfg'):
         login_info = gen_cfg()
