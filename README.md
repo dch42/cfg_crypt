@@ -50,4 +50,8 @@ Encryption complete.
 
 `cc.decrypt_cfg(key, path, script_name)`, decrypts encrypted cfg data and returns as a dictionary
 
-Values can be accessed with `cfg['EMAIL']` and `cfg['PW']`
+~~~
+cfg={'EMAIL': 'test@test.com', 'PW': 'test'}
+cfg['EMAIL']='test@test.com'
+cfg['PW']='test'
+~~~
