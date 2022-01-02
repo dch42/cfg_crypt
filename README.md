@@ -9,12 +9,18 @@ Mitigates allowing unencrypted sensitive data to live on the HDD, as even enviro
 └── .cfg_crypt_cfg
 ~~~
 
-⚠️ Although data is stored outside of project directories, the risk of keys being pushed or otherwise accessed is nonzero and caution should be taken.  
+⚠️ *Although data is stored outside of project directories, the risk of keys being pushed or otherwise accessed is still nonzero and caution should be taken.*  
 
 ## Usage
 Can be used as a stand-alone script, or imported as a module to larger scripts for more versatility: 
 ~~~
 import cfg_crypt as cc
+~~~
+
+For now, scripts importing as a module should declare their name somehow, e.g.:
+~~~
+import os
+script_name = os.path.splitext(os.path.basename(__file__))[0]
 ~~~
 
 ### Functions
