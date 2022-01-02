@@ -1,5 +1,12 @@
 # cfg_crypt
-Module to create, encrypt, and decrypt a small config file. 
+Module to create, encrypt, and decrypt a small config file for email/pw combos. 
+
+
+## Usage
+Can be used as a stand-alone script, or imported as a module to larger scripts. 
+~~~
+import cfg_crypt as cc
+~~~
 
 If no key exists, it will generate a key.
 
