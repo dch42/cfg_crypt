@@ -17,7 +17,7 @@ def make_hidden_dir(script_name):
     hidden_path.mkdir(parents=True, exist_ok=True)
     return hidden_path
 
-def gen_key():
+def gen_key(hidden_path, script_name):
     """Generate fernet encryption key"""
     print("Generating encryption key...")
     fernet_key = Fernet.generate_key()
@@ -25,7 +25,7 @@ def gen_key():
         cfg_key.write(fernet_key)
     print(f"\033[5m==>\033[0m Key generated at '{hidden_path}/.{script_name}.key'\n")
 
-def read_key():
+def read_key(hidden_path, script_name):
     """Read encryption key"""
     with open(f'{hidden_path}/.{script_name}.key', 'rb') as filekey:
         raw_key = filekey.read()
@@ -40,7 +40,7 @@ def gen_cfg():
     login_info =  '{'+ f"'EMAIL': '{LOGIN}', 'PW': '{PW}'" + '}'
     return login_info
 
-def encrypt_cfg(login_info, fernet_key):
+def encrypt_cfg(login_info, fernet_key, hidden_path, script_name):
     """Encrypt and save cfg file"""
     print("\nEncrypting config file...")
     encrypted = fernet_key.encrypt(bytes(login_info, 'utf-8'))
@@ -50,7 +50,7 @@ def encrypt_cfg(login_info, fernet_key):
     print(f"\033[5m==>\033[0m Encrypted file saved at '{hidden_path}/.{script_name}_cfg'\n")
 
 
-def decrypt_cfg(fernet_key):
+def decrypt_cfg(fernet_key, hidden_path, script_name):
     """Decrypt bytes and convert to cfg dict"""
     with open(f'{hidden_path}/.{script_name}_cfg', 'rb') as file:
         encrypted = file.read()
