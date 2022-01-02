@@ -24,7 +24,7 @@ script_name = "Script"
 ~~~
 
 ### Functions
-`cc.make_hidden_dir(script_name)`, creates hidden directory in user $HOME & returns directory path
+`cc.make_hidden_dir(script_name)`, creates hidden directory in user $HOME and returns directory path
 
 `cc.gen_key(path, script_name)`, generates a fernet encryption key:
 ~~~
