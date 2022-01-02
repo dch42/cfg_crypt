@@ -30,7 +30,8 @@ Encryption complete.
 ==> Encrypted file saved at ./.crypt_cfg
 ~~~
 
+`cc.read_key()`, reads encryption key from disk
 
-Decrypted data is returned as a dictionary: `cfg`
+`cc.decrypt_cfg()`, decrypts encrypted cfg data and returns as a dictionary
 
-Values can be accessed with `cfg['EMAIL']` and `cfg['PW']`
+Values can be accessed with `cc.cfg['EMAIL']` and `cc.cfg['PW']`
