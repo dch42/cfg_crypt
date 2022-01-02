@@ -1,6 +1,7 @@
 # cfg_crypt
-Module to create, encrypt, and decrypt a small config file for email/pw combos. 
+Module to create, encrypt, and decrypt a small config file for email/pw combos.
 
+Mitigates allowing unencrypted sensitive data to live on the HDD, as even environment variables are trivially accessed on a comprimised device. ⚠️ However, the risk of keys being pushed or otherwise accessed is nonzero: ***encryption keys and config files should be added to .gitignore.***
 
 ## Usage
 Can be used as a stand-alone script, or imported as a module to larger scripts for more versatility: 
